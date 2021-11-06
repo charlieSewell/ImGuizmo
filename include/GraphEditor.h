@@ -50,7 +50,7 @@ enum FitOnScreen
 // Display options and colors
 struct Options
 {
-    ImRect mMinimap = {{0.75f, 0.8f, 0.99f, 0.99f}}; // rectangle coordinates of minimap
+    ImRect mMinimap = ImRect(0.75f, 0.8f, 0.99f, 0.99f); // rectangle coordinates of minimap
     ImU32 mBackgroundColor = { IM_COL32(40, 40, 40, 255) }; // full background color
     ImU32 mGridColor = { IM_COL32(0, 0, 0, 60) }; // grid lines color
     ImU32 mGridColor2 = { IM_COL32(0, 0, 0, 160) }; // grid lines color every 10th
@@ -81,7 +81,7 @@ struct Options
 // View state: scroll position and zoom factor
 struct ViewState
 {
-    ImVec2 mPosition = {0.0f, 0.0f}; // scroll position
+    ImVec2 mPosition = ImVec2(0.0f, 0.0f); // scroll position
     float mFactor = { 1.0f }; // current zoom factor
     float mFactorTarget = { 1.0f }; // targeted zoom factor interpolated using Options.mZoomLerpFactor
 };
@@ -104,7 +104,7 @@ struct Node
     const char* mName;
     TemplateIndex mTemplateIndex;
     ImRect mRect;
-    bool mSelected{ false };
+    bool mSelected = { false };
 };
 
 struct Link
