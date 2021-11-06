@@ -448,9 +448,19 @@ static bool HandleConnections(ImDrawList* drawList,
                     // check loopback
                     Link nl;
                     if (editingInput)
-                        nl = Link{nodeIndex, closestConn, editingNodeIndex, editingSlotIndex};
+                    {
+                        nl.mInputNodeIndex = nodeIndex;
+                        nl.mInputSlotIndex = closestConn;
+                        nl.mOutputNodeIndex = editingNodeIndex;
+                        nl.mOutputSlotIndex = editingSlotIndex;   
+                    }
                     else
-                        nl = Link{editingNodeIndex, editingSlotIndex, nodeIndex, closestConn};
+                    {
+                        nl.mInputNodeIndex = editingNodeIndex;
+                        nl.mInputSlotIndex = editingSlotIndex;
+                        nl.mOutputNodeIndex = nodeIndex;
+                        nl.mOutputSlotIndex = closestConn
+                    }
 
                     if (!delegate.AllowedLink(nl.mOutputNodeIndex, nl.mInputNodeIndex))
                     {
