@@ -228,14 +228,14 @@ static void DisplayLinks(Delegate& delegate,
                 dif = p20 - p10;
                 p1a = p10 + ImVec2(0.f, dif.y * 0.5f);
                 p1b = p1a + ImVec2(dif.x, 0.f);
-                pts = std::array<ImVec2, 6>{ p1, p10, p1a, p1b, p20, p2 };
+                pts = std::array<ImVec2, 6>{ { p1, p10, p1a, p1b, p20, p2 } };
                 ptCount = 6;
             }
             else
             {
                 if (fabsf(dif.y) < 1.f)
                 {
-                    pts = std::array<ImVec2, 6>{ p1, (p1 + p2) * 0.5f, p2 };
+                    pts = std::array<ImVec2, 6>{ { p1, (p1 + p2) * 0.5f, p2 } };
                     ptCount = 3;
                 }
                 else
@@ -268,7 +268,7 @@ static void DisplayLinks(Delegate& delegate,
                             p1b = p1a + ImVec2(0.f, fabsf(fabsf(dif.y) - fabsf(d) * 2.f) * sign(dif.y));
                         }
                     }
-                    pts = std::array<ImVec2, 6>{ p1, p1a, p1b, p2 };
+                    pts = std::array<ImVec2, 6>{ { p1, p1a, p1b, p2 } };
                     ptCount = 4;
                 }
             }
